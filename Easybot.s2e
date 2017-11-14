@@ -1,0 +1,208 @@
+{
+	"extensionName": "Easybot",
+	"description": "For Programming Easybot of STEMbot.vn - Arduino Mode Only",
+	"version": "1.0",
+	"author": "Hien Phan",
+	"homepage": "http://stembot.vn",
+	"sort":0,
+	"javascriptURL":"js/Easybot.js",
+  	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+	 ["h","Easybot Program","runArduino",{"src":"Easybot","inc":"#include \"Easybot.h\"\n","def": "EasybotNano Robot;\n","setup":"","loop":""}],
+    [
+      "w",
+      "Robot Stop",
+	  "stop",
+     {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.stop();\n",
+        "loop" : ""
+      }
+    ],
+	[
+      "w",
+      "Move Forward at Speed: %n \%",
+	  "moveForward",
+      100,
+      {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.moveForward({0});\n",
+        "loop" : ""
+      }
+    ],
+	[
+      "w",
+      "Set Motor (Left %n \%   Right: %n \% )\n",
+	  "move",
+      100,
+	  100,
+      {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.moveForward({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+    [
+      "w",
+      "Move Backward at Speed: %n \%",
+	  "moveBack",
+      100,
+      {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.moveBack({0});\n",
+        "loop" : ""
+      }
+    ],
+    [
+      "w",
+      "Turn Left at Speed: %n \%",
+      "turnLeft",
+      70,
+      {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.turnLeft({0});\n",
+        "loop" : ""
+      }
+    ],
+    [
+      "w",
+      "Turn Right at Speed: %n \% ",
+      "turnRight",
+      70,
+      {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.turnRight({0});\n",
+        "loop" : ""
+      }
+    ],
+	[
+      "w",
+      "Turn Left at Speed: %n \% in %n x0.1s ",
+      "turnLeftInTime",
+      70,3, 
+	    {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.turnLeft({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+	[
+      "w",
+      "Turn Right at Speed: %n \% in %n x0.1s ",
+      "turnRightInTime",
+      70,3, 
+	    {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.turnRight({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+	[
+      "w",
+      "Line Color: %d.Line_color  Sensitive: %n  ",
+      "LineConfig",
+      "BLACK",350, 
+	    {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.setup_lineSensor({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+	[
+      "R",
+      "Read Line Sensor %d.Line_Sensor_Pos",
+      "readLineSensor",
+      "CENTER", 
+	    {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.readSensor({0})",
+        "loop" : ""
+      }
+    ],
+	[
+      "B",
+      "Line in Left ",
+      "CheckLeftLine",
+        {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.leftSensor()",
+        "loop" : ""
+      }
+    ],
+	[
+      "B",
+      "Line in Center ",
+      "CheckCenterLine",
+        {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.centerSensor()",
+        "loop" : ""
+      }
+    ],
+	[
+      "B",
+      "Line in Right ",
+      "CheckRightLine",
+        {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.rightSensor()",
+        "loop" : ""
+      }
+    ],
+	[
+      "R",
+      "Read Distance front ",
+      "readDistance",
+        {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "Robot.readSonar()",
+        "loop" : ""
+      }
+    ]
+	],
+	"menus": {
+	"Line_color":["BLACK","WHITE"],
+	"Line_Sensor_Pos":["LEFT","CENTER","RIGHT"]
+	
+	
+	},
+	"values":{
+	"BLACK":1,
+	"WHITE":0,
+	"LEFT":1,
+	"RIGHT":-1,
+	"CENTER":0
+	},
+	"translators":{
+          
+	}
+}

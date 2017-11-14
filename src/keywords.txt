@@ -1,0 +1,20 @@
+Easybot	KEYWORD1
+robot	KEYWORD1
+begin	KEYWORD2
+moveForward	KEYWORD2
+moveBack	KEYWORD2
+Stop 	KEYWORD2
+turnRight	KEYWORD2
+turnLeft	KEYWORD2
+moveRight	KEYWORD2
+moveLeft	KEYWORD2
+readSensor	KEYWORD2
+leftSensor	KEYWORD2
+rightSensor	KEYWORD2
+centerSensor	KEYWORD2
+readSonar	KEYWORD2
+lookRight	KEYWORD2
+lookLeft	KEYWORD2
+lookFront	KEYWORD2
+BT	KEYWORD2
+	
