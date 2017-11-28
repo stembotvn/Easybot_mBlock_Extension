@@ -4,7 +4,7 @@ Mblock là phần mềm cho phép lập trình Scratch cho Robot do hãng MakeBl
 Extension là tập hợp file cho phép cài đặt các Block cho các loại robot khác nhau để có thể chạy trên môi trường Mblock. 
 
 Easybot Extension do STEMbot phát triển để có thể lập trình ngôn ngữ Scratch cho các Robot thuộc dòng Easybot để có thể chạy trên môi trường Mblock. 
-Tài liệu bắt đầu lập trình Robot với Scratch: https://github.com/stembotvn/ZowiVbot-Mblock-Doccument 
+
 
 
 
