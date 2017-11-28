@@ -27,8 +27,8 @@ Easybot hỗ trợ 2 chế độ kết nối với Mblock là Serial via USB và
    
  2. Bluetooth Connection: 
  * Máy tính bắt buộc phải có chức năng Bluetooth, nếu không có thì sử dụng Bluetooth USB Dongle. 
- * Bật Bluetooth lên và Pair với Robot, chú ý, tên Device hiển thị là Zowi, các bạn có thể Pair lần đầu và sau đó đổi tên tùy ý, mật khẩu để Pair là 1234
- * Vào Connect/Bluetooth: chọn device vừa Pair là (Zowi với địa chỉ kèm theo dạng aa:bb:cc:dd:ee:ff) và bấm connect 
+ * Bật Bluetooth lên và Pair với Robot, chú ý, tên Device hiển thị là tên Robot hoặc tên module Bluetooth, các bạn có thể Pair lần đầu và sau đó đổi tên tùy ý, mật khẩu để Pair là 1234
+ * Vào Connect/Bluetooth: chọn device vừa Pair là (Tên module bluetooth với địa chỉ kèm theo dạng aa:bb:cc:dd:ee:ff) và bấm connect 
  * Nếu kết nối thành công, lập trình giống như với Serial Connection. 
  ### Chạy chương trình
     Extension hiện tại chỉ hỗ trợ Arduino Mode
