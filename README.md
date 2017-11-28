@@ -23,13 +23,12 @@ Easybot hỗ trợ 2 chế độ kết nối với Mblock là Serial via USB và
    * Bật nguồn cho Robot, đảm bảo Pin đầy để hoạt động
    * Cắm dây nối USB từ máy tính đến robot, chú ý, sử dụng dây Mini USB với chiều dài ít nhất 40 cm để Robot có thể hoạt động không bị vướng. 
    * Trên phần mềm Mblock, vào Connect/Serial Port: chọn cổng kết nối với Robot, nếu kết nối thành công sẽ được thông báo (Serial Connected)
-   * Các Block liên quan đến hoạt động của robot thì vào mục Robot, Zowi Vbot hỗ trợ 3 loại Block: Move, Gesture và Sing với rất nhiều thuộc tính liên quan.
-   
- 2. Bluetooth Connection: 
+   * Các Block liên quan đến hoạt động của robot thì vào mục Robot. 
+ 2. Bluetooth Connection (Hiện tại chỉ hỗ trợ truyền data ở chế độ Arduino Mode (như Serial Monitor của Arduino IDE): 
  * Máy tính bắt buộc phải có chức năng Bluetooth, nếu không có thì sử dụng Bluetooth USB Dongle. 
  * Bật Bluetooth lên và Pair với Robot, chú ý, tên Device hiển thị là tên Robot hoặc tên module Bluetooth, các bạn có thể Pair lần đầu và sau đó đổi tên tùy ý, mật khẩu để Pair là 1234
  * Vào Connect/Bluetooth: chọn device vừa Pair là (Tên module bluetooth với địa chỉ kèm theo dạng aa:bb:cc:dd:ee:ff) và bấm connect 
- * Nếu kết nối thành công, lập trình giống như với Serial Connection. 
+
  ### Chạy chương trình
     Extension hiện tại chỉ hỗ trợ Arduino Mode
     
@@ -37,7 +36,8 @@ Easybot hỗ trợ 2 chế độ kết nối với Mblock là Serial via USB và
    Scratch Mode là chế độ chạy chương trình Robot ngay trên máy tính, Robot sẽ nhận lệnh từng từ Scratch và thực thi gần như song song: 
    - Ưu điểm là chạy chương trình ngay lập tức mà không phải biên dịch
    - Nhược điểm là Robot chỉ hoạt động khi phần mềm mBlock chạy và phải đảm bảo Robot và máy tính luôn được kết nối  
-     Để sử dụng Scratch Mode, Robot phải được nạp trước Firmware thích hợp từ Phần mềm Arduino
+     Để sử dụng Scratch Mode, Robot phải được nạp trước Firmware thích hợp từ Phần mềm Arduino 
+     Hiện tại Easybot chưa hỗ trợ Scratch Mode
 
  #### Arduino Mode
  Chế độ Arduino mode ta vào mBlock-> Edit/Arduino Mode, Các lệnh Scratch sẽ được dịch qua Arduino code.
