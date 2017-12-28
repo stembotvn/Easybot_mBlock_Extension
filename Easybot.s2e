@@ -1,7 +1,7 @@
 {
 	"extensionName": "Easybot",
 	"description": "For Programming Easybot of STEMbot.vn - Arduino Mode Only",
-	"version": "1.2",
+	"version": "1.3",
 	"author": "Hien Phan",
 	"homepage": "http://stembot.vn/products/wibot",
 	"sort":0,
@@ -9,11 +9,19 @@
   	"firmware":"1.0",
   	"extensionPort":0,
 	"blockSpecs": [
-	 ["h","Easybot Program","runArduino",{"src":"Easybot","inc":"#include \"Easybot.h\"\n","def": "EasybotNano Robot;\n","setup":"","loop":""}],
+	  [
+      "h",
+      "Easybot Program",
+      "runArduino",
+       {
+         "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+         "setup":"","loop":""}
+    ],
     [
       "w",
       "Robot Stop",
-	  "stop",
+	    "stop",
      {
         "inc" : "",
         "def" : "",
@@ -127,6 +135,18 @@
         "loop" : ""
       }
     ],
+    [
+       "w",
+       "LCD Print at %d.row Pos %d  %s ", 
+       "LCDprint", 
+       "LINE1","0","",
+        {
+           "setup":"lcd.begin();\n lcd.backlight();\n",
+           "inc":"#include \"LiquidCrystal_I2C.h\"\n",
+           "def":"LiquidCrystal_I2C lcd(0x3F, 16, 2);\n",
+           "work":"lcd.setCursor({1},{0});lcd.print({2});lcd.print(\" \");\n",
+           "loop":""}
+    ],
 	[
       "R",
       "Read Line Sensor %d.Line_Sensor_Pos",
@@ -225,7 +245,8 @@
 	],
 	"menus": {
 	"Line_color":["BLACK","WHITE"],
-	"Line_Sensor_Pos":["LEFT","CENTER","RIGHT"]
+	"Line_Sensor_Pos":["LEFT","CENTER","RIGHT"],
+  "row":["LINE1","LINE2"]
 	
 	
 	},
@@ -234,7 +255,9 @@
 	"WHITE":0,
 	"LEFT":0,
 	"RIGHT":2,
-	"CENTER":1
+	"CENTER":1,
+  "LINE1":0,
+  "LINE2":1,
 	},
 	"translators":{
           
