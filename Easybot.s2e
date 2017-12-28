@@ -1,9 +1,9 @@
 {
 	"extensionName": "Easybot",
 	"description": "For Programming Easybot of STEMbot.vn - Arduino Mode Only",
-	"version": "1.0",
+	"version": "1.2",
 	"author": "Hien Phan",
-	"homepage": "http://stembot.vn",
+	"homepage": "http://stembot.vn/products/wibot",
 	"sort":0,
 	"javascriptURL":"js/Easybot.js",
   	"firmware":"1.0",
@@ -187,6 +187,40 @@
         "work" : "Robot.readSonar()",
         "loop" : ""
       }
+    ],
+		["w",
+		"serial write text  %s", 
+		"serialWrite", "hello",
+		{
+		"setup":"Serial.begin(115200);\n",
+		"inc":"",
+		"def":"",
+		"work":"Serial.println({0});\n",
+		"loop":""}
+		],
+    [
+      "R",
+      "serial available bytes",
+      "serialAvailable",
+      {
+        "setup": "Serial.begin(115200);\n",
+        "inc": "",
+        "def": "",
+        "work": "Serial.available()",
+        "loop": ""
+      }
+    ],
+    [
+      "R",
+      "serial read byte",
+      "serialRead",
+      {
+        "setup": "Serial.begin(115200);\n",
+        "inc": "",
+        "def": "",
+        "work": "Serial.read()",
+        "loop": ""
+      }
     ]
 	],
 	"menus": {
@@ -198,9 +232,9 @@
 	"values":{
 	"BLACK":1,
 	"WHITE":0,
-	"LEFT":1,
-	"RIGHT":-1,
-	"CENTER":0
+	"LEFT":0,
+	"RIGHT":2,
+	"CENTER":1
 	},
 	"translators":{
           
