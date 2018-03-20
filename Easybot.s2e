@@ -1,9 +1,9 @@
 {
 	"extensionName": "Easybot",
 	"description": "For Programming Easybot of STEMbot.vn - Arduino Mode Only",
-	"version": "1.4",
-	"author": "Hien Phan",
-	"homepage": "http://stembot.vn/products/wibot",
+	"version": "1.5",
+	"author": "STEMbot.vn",
+	"homepage": "http://stembot.vn",
 	"sort":0,
 	"javascriptURL":"js/Easybot.js",
   	"firmware":"1.0",
@@ -16,9 +16,9 @@
        {
          "inc":"#include \"Easybot.h\"\n",
          "def": "EasybotNano Robot;\n",
-         "setup":"","loop":""}
+         "setup":"Robot.waitStart(5);\n","loop":""}
     ],
-    [
+     [
       "w",
       "Robot Stop",
 	    "stop",
@@ -198,7 +198,7 @@
     ],
 	[
       "R",
-      "Read Distance front ",
+      "Read Distance",
       "readDistance",
         {
         "inc" : "",
@@ -241,6 +241,29 @@
         "work": "Serial.read()",
         "loop": ""
       }
+    ],
+
+    ["R", 
+    "timer",
+    "getTimer", 
+    "0",
+    {"setup":"",
+    "inc":"",
+    "def":"double currentTime = 0;\ndouble lastTime = 0;\n--separator--double getLastTime(){\n\treturn currentTime = millis()/1000.0 - lastTime;\n}\n",
+    "work":"getLastTime()",
+    "loop":""
+    }],
+    
+    ["w", 
+    "reset timer",
+    "resetTimer",
+     "0",
+    {
+    "setup":"",
+    "inc":"",
+    "def":"double currentTime = 0;\ndouble lastTime = 0;\n",
+    "work":"lastTime = millis()/1000.0;\n","loop":""
+    }
     ]
 	],
 	"menus": {
