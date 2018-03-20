@@ -8,7 +8,7 @@ Stembot V1.0
    Sensor:  Line following Sensor 3 channels Analog with Enable Pin to active Sensor
    
             Ultra Sonic Range finder sensor SR-04 for detect object
-	HC-06 Bluetooth Interface Via Software Serial
+	HC-06 Bluetooth Interface Via Software Serial, HM10 for BLE 
     NRF24L01 Interface	
    		 
 
@@ -21,8 +21,7 @@ Stembot V1.0
 
 #include "EasySonar.h"
 #include "EasyMotor.h"
-//#include <SPI.h>
-//#include "nrf24l01/RF24.h"
+
 //#include <Servo.h>
 #include <SoftwareSerial.h>
 ///////////////////////////////////////////////////////////
@@ -34,7 +33,7 @@ Stembot V1.0
 #define lineSensor_enable   A3
 #define leftline_pin2       
 #define rightline_pin2			              			///
-//#define battery_monitor_pin 4     					///
+   					///
 #define SR04_Trig             4							///
 #define SR04_Echo             3							///
 //#define Servo1_pin           11                         ///
@@ -103,7 +102,8 @@ public:
     EasybotNano():  RightMotor(rightMotor_pinA,rightMotor_pinB), LeftMotor(leftMotor_pinA,leftMotor_pinB), Distance(SR04_Trig,SR04_Echo)//, BT(BT_RX_Pin,BT_TX_Pin)
 	 {} //initializer list for objects using within this Class
 
-  //void begin();                          // set Robot Head to Centor, looking to front,   
+  //void begin();       
+    void waitStart(int distance);  //wait for signing in front of Robot with distance             
     void moveForward(int speed);           // move forward function, Hàm chạy thẳng 
     void moveForward(int Leftspeed,int rightspeed);  // move forward with manual adjust Left, Right Wheel Speed || Hàm chạy thẳng với tham số bánh trái và phải tùy chỉnh
     void moveBack(int speed);            //  
@@ -114,12 +114,12 @@ public:
 	void turnRight(int speed,int time);  //turn to the right, time interval is 100ms <-> const angle
 	void turnLeft(int speed);            //turn robot to the left || Quay robot sang trái
 	void turnLeft(int speed,int time);   //turn to the left, time interval is 100ms <-> const angle
-  void setup_lineSensor(int color, int threshold_detect);
+  	void setup_lineSensor(int color, int threshold_detect);
 	int  readSensor(int channel);        ///Read line sensor with customized channel, return raw value, Channel is LEFTSENSOR, RIGHTSENSOR, CENTERSENSOR
 	bool leftSensor();                   //Read sensor detection, return 1 if detect line, return 0 if not detect line
 	bool rightSensor();                  //Read Right line sensor, return 1 if detect line, return 0 if not detect line
 	bool centerSensor();				 //Read Center line Sensor, return 1 if detect line, return 0 if not detect line
-    int readSonar();            		 ///read the distance || Đọc khoảng cách ex: int khoangcach = robot.readSonar();
+  float readSonar();            		 ///read the distance || Đọc khoảng cách ex: int khoangcach = robot.readSonar();
 
 private:
    EasyMotorL9110 RightMotor;
