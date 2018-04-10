@@ -1,7 +1,7 @@
 {
 	"extensionName": "Easybot",
 	"description": "For Programming Easybot of STEMbot.vn - Arduino Mode Only",
-	"version": "1.5",
+	"version": "1.6",
 	"author": "STEMbot.vn",
 	"homepage": "http://stembot.vn",
 	"sort":0,
@@ -16,7 +16,7 @@
        {
          "inc":"#include \"Easybot.h\"\n",
          "def": "EasybotNano Robot;\n",
-         "setup":"Robot.waitStart(5);\n","loop":""}
+         "setup":"","loop":""}
     ],
      [
       "w",
