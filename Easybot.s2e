@@ -16,7 +16,8 @@
        {
          "inc":"#include \"Easybot.h\"\n",
          "def": "EasybotNano Robot;\n",
-         "setup":"","loop":""}
+         "setup":"",
+         "loop":""}
     ],
      [
       "w",
