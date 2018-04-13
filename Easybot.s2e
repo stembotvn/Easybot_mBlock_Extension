@@ -1,7 +1,7 @@
 {
 	"extensionName": "Easybot",
 	"description": "For Programming Easybot of STEMbot.vn - Arduino Mode Only",
-	"version": "1.6",
+	"version": "1.7",
 	"author": "STEMbot.vn",
 	"homepage": "http://stembot.vn",
 	"sort":0,
@@ -14,8 +14,8 @@
       "Easybot Program",
       "runArduino",
        {
-         "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
+         "inc":"",
+         "def": "",
          "setup":"",
          "loop":""}
     ],
@@ -24,8 +24,8 @@
       "Robot Stop",
 	    "stop",
      {
-        "inc" : "",
-        "def" : "",
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.stop();\n",
         "loop" : ""
@@ -37,8 +37,8 @@
 	  "moveForward",
       100,
       {
-        "inc" : "",
-        "def" : "",
+       "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.moveForward({0});\n",
         "loop" : ""
@@ -51,8 +51,8 @@
       100,
 	  100,
       {
-        "inc" : "",
-        "def" : "",
+       "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.moveForward({0},{1});\n",
         "loop" : ""
@@ -64,8 +64,8 @@
 	  "moveBack",
       100,
       {
-        "inc" : "",
-        "def" : "",
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.moveBack({0});\n",
         "loop" : ""
@@ -77,8 +77,8 @@
       "turnLeft",
       70,
       {
-        "inc" : "",
-        "def" : "",
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.turnLeft({0});\n",
         "loop" : ""
@@ -90,8 +90,8 @@
       "turnRight",
       70,
       {
-        "inc" : "",
-        "def" : "",
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.turnRight({0});\n",
         "loop" : ""
@@ -103,8 +103,8 @@
       "turnLeftInTime",
       70,3, 
 	    {
-        "inc" : "",
-        "def" : "",
+       "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.turnLeft({0},{1});\n",
         "loop" : ""
@@ -116,8 +116,8 @@
       "turnRightInTime",
       70,3, 
 	    {
-        "inc" : "",
-        "def" : "",
+        "inc":"#include \"Easybot.h\"\n",
+        "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.turnRight({0},{1});\n",
         "loop" : ""
@@ -129,8 +129,8 @@
       "LineConfig",
       "BLACK",350, 
 	    {
-        "inc" : "",
-        "def" : "",
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.setup_lineSensor({0},{1});\n",
         "loop" : ""
@@ -154,8 +154,8 @@
       "readLineSensor",
       "CENTER", 
 	    {
-        "inc" : "",
-        "def" : "",
+       "inc":"#include \"Easybot.h\"\n",
+        "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.readSensor({0})",
         "loop" : ""
@@ -166,8 +166,8 @@
       "Line in Left ",
       "CheckLeftLine",
         {
-        "inc" : "",
-        "def" : "",
+       "inc":"#include \"Easybot.h\"\n",
+       "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.leftSensor()",
         "loop" : ""
@@ -178,8 +178,8 @@
       "Line in Center ",
       "CheckCenterLine",
         {
-        "inc" : "",
-        "def" : "",
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.centerSensor()",
         "loop" : ""
@@ -190,8 +190,8 @@
       "Line in Right ",
       "CheckRightLine",
         {
-        "inc" : "",
-        "def" : "",
+       "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.rightSensor()",
         "loop" : ""
@@ -202,16 +202,16 @@
       "Read Distance",
       "readDistance",
         {
-        "inc" : "",
-        "def" : "",
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.readSonar()",
         "loop" : ""
       }
     ],
 		["w",
-		"serial write text  %s", 
-		"serialWrite", "hello",
+		"serial write Message  %s", 
+		"serialWriteMessage", "hello",
 		{
 		"setup":"Serial.begin(115200);\n",
 		"inc":"",
@@ -245,8 +245,8 @@
     ],
 
     ["R", 
-    "timer",
-    "getTimer", 
+    "get Timer in mili-Seconds",
+    "getTimer_ms", 
     "0",
     {"setup":"",
     "inc":"",
@@ -257,7 +257,7 @@
     
     ["w", 
     "reset timer",
-    "resetTimer",
+    "resetTimer_ms",
      "0",
     {
     "setup":"",
