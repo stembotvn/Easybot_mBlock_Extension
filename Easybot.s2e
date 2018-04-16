@@ -6,8 +6,8 @@
 	"homepage": "http://stembot.vn",
 	"sort":0,
 	"javascriptURL":"js/Easybot.js",
-  	"firmware":"1.0",
-  	"extensionPort":0,
+  "firmware":"1.0",
+  "extensionPort":0,
 	"blockSpecs": [
 	  [
       "h",
