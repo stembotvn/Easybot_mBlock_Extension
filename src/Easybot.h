@@ -103,7 +103,11 @@ public:
 	 {} //initializer list for objects using within this Class
 
   //void begin();       
-    void waitStart(int distance);  //wait for signing in front of Robot with distance             
+    void waitStart(int distance);  //wait for signing in front of Robot with distance   
+    void setMaxSpeed(int max)  {
+      _MaxSpeed = max;
+      _K = _MaxSpeed/100;
+    }        
     void moveForward(int speed);           // move forward function, Hàm chạy thẳng 
     void moveForward(int Leftspeed,int rightspeed);  // move forward with manual adjust Left, Right Wheel Speed || Hàm chạy thẳng với tham số bánh trái và phải tùy chỉnh
     void moveBack(int speed);            //  
@@ -127,6 +131,8 @@ private:
    EasySonar Distance;
    int _LINE_COLOR = BLACK;
    int _line_detect = 400; 
+   int _MaxSpeed = 100;
+   int _K=1;
  //  SoftwareSerial BT; 
  
 };
