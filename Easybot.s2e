@@ -34,7 +34,7 @@
     ],
     [
       "w",
-      "Set Speed Left: %n \% Right: %n \%",
+      "Calibrate Speed Left: %n \% Right: %n \%",
     "calibSpeed",
       100,100,
       {

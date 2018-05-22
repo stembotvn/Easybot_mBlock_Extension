@@ -104,7 +104,7 @@ public:
 
   //void begin();       
     void waitStart(int distance);  //wait for signing in front of Robot with distance   
-    void setMaxSpeed(int maxL)  {
+    void setMaxSpeed(int max)  {
       _MaxSpeed = max;
       _K = (float)_MaxSpeed/100;
     }      

@@ -37,7 +37,7 @@ int  movespeed =  _K*(float)speed*255/100;
  {
 //int rspeed;
 //rspeed = speed*255/100; 	
-moveForward(_RCal*_K*speed,0);
+moveForward(_Rcal*_K*speed,0);
 
  }
  ///
