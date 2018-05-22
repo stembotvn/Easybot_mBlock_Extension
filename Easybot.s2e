@@ -32,6 +32,19 @@
         "loop" : ""
       }
     ],
+    [
+      "w",
+      "Set Speed Left: %n \% Right: %n \%",
+    "calibSpeed",
+      100,100,
+      {
+       "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.calibrate_Speed({0},{1});\n",
+        "loop" : ""
+      }
+    ],
      [
       "w",
       "Robot Stop",

@@ -104,10 +104,14 @@ public:
 
   //void begin();       
     void waitStart(int distance);  //wait for signing in front of Robot with distance   
-    void setMaxSpeed(int max)  {
+    void setMaxSpeed(int maxL)  {
       _MaxSpeed = max;
       _K = (float)_MaxSpeed/100;
-    }        
+    }      
+    void calibrate_Speed(int LeftCal,int RightCal) {
+        _Lcal = (float)LeftCal/100;
+        _Rcal = (float)RightCal/100;
+    }
     void moveForward(int speed);           // move forward function, Hàm chạy thẳng 
     void moveForward(int Leftspeed,int rightspeed);  // move forward with manual adjust Left, Right Wheel Speed || Hàm chạy thẳng với tham số bánh trái và phải tùy chỉnh
     void moveBack(int speed);            //  
@@ -133,6 +137,8 @@ private:
    int _line_detect = 400; 
    int _MaxSpeed = 100;
    float _K=1;
+   float _Lcal = 1;
+   float _Rcal = 1;
  //  SoftwareSerial BT; 
  
 };
