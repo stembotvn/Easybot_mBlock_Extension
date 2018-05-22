@@ -106,7 +106,7 @@ public:
     void waitStart(int distance);  //wait for signing in front of Robot with distance   
     void setMaxSpeed(int max)  {
       _MaxSpeed = max;
-      _K = _MaxSpeed/100;
+      _K = (float)_MaxSpeed/100;
     }        
     void moveForward(int speed);           // move forward function, Hàm chạy thẳng 
     void moveForward(int Leftspeed,int rightspeed);  // move forward with manual adjust Left, Right Wheel Speed || Hàm chạy thẳng với tham số bánh trái và phải tùy chỉnh
@@ -118,7 +118,7 @@ public:
 	void turnRight(int speed,int time);  //turn to the right, time interval is 100ms <-> const angle
 	void turnLeft(int speed);            //turn robot to the left || Quay robot sang trái
 	void turnLeft(int speed,int time);   //turn to the left, time interval is 100ms <-> const angle
-  	void setup_lineSensor(int color, int threshold_detect);
+  void setup_lineSensor(int color, int threshold_detect);
 	int  readSensor(int channel);        ///Read line sensor with customized channel, return raw value, Channel is LEFTSENSOR, RIGHTSENSOR, CENTERSENSOR
 	bool leftSensor();                   //Read sensor detection, return 1 if detect line, return 0 if not detect line
 	bool rightSensor();                  //Read Right line sensor, return 1 if detect line, return 0 if not detect line
@@ -132,7 +132,7 @@ private:
    int _LINE_COLOR = BLACK;
    int _line_detect = 400; 
    int _MaxSpeed = 100;
-   int _K=1;
+   float _K=1;
  //  SoftwareSerial BT; 
  
 };
