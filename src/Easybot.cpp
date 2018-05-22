@@ -14,21 +14,21 @@ void EasybotNano::waitStart(int distance)
 
 ///////////////////////////////////////
 void EasybotNano::moveForward(int speed){
- int movespeed = _K*speed*255/100; 
+ int movespeed = _K*(float)speed*255/100; 
  LeftMotor.run(movespeed);
  RightMotor.run(movespeed);
 }
 ////
 void EasybotNano::moveBack(int speed){
-int  movespeed =  _K*speed*255/100; 
+int  movespeed =  _K*(float)speed*255/100; 
  LeftMotor.run(-movespeed);
  RightMotor.run(-movespeed);	
 }
 ////////////////////////////////////////////
  void EasybotNano::moveForward(int leftspeed,int rightspeed)
  {
- 	int Lspeed = _K*leftspeed*255/100;
- 	int Rspeed = _K*rightspeed*255/100;
+ 	int Lspeed = _K*(float)leftspeed*255/100;
+ 	int Rspeed = _K*(float)rightspeed*255/100;
  	LeftMotor.run(Lspeed);
  	RightMotor.run(Rspeed);
  }
@@ -37,7 +37,7 @@ int  movespeed =  _K*speed*255/100;
  {
 //int rspeed;
 //rspeed = speed*255/100; 	
-moveForward(_K*speed,0);
+moveForward(_K*(float)speed,0);
 
  }
  ///
@@ -45,7 +45,7 @@ moveForward(_K*speed,0);
  {
 //int rspeed;
 //rspeed = speed*255/100; 	
-moveForward(0,_K*speed);
+moveForward(0,_K*(float)speed);
  }
  
 //////////////////////////////
@@ -57,7 +57,7 @@ void EasybotNano::stop()
 ///////////////////////////////
 
 void EasybotNano::turnRight(int speed){
-int turnspeed = _K*speed*255/100;
+int turnspeed = _K*(float)speed*255/100;
 
 LeftMotor.run(turnspeed);
 RightMotor.run(-turnspeed);
@@ -66,7 +66,7 @@ RightMotor.run(-turnspeed);
 /////////////////////////////////////////
 void EasybotNano::turnRight(int speed,int time)
 {
-int turnspeed = _K*speed*255/100;
+int turnspeed = _K*(float)speed*255/100;
 int i = 0;
 
 LeftMotor.run(turnspeed);
@@ -80,7 +80,7 @@ for (i=0;i<time;i++)
 }
 /////////////////////
 void EasybotNano::turnLeft(int speed){
-int turnspeed = _K*speed*255/100;
+int turnspeed = _K*(float)speed*255/100;
 //LeftMotor.stop();
 //RightMotor.stop();
 //delayMicroseconds(deadband_time);
@@ -94,7 +94,7 @@ int turnspeed = _K*speed*255/100;
 //////////
 void EasybotNano::turnLeft(int speed,int time)
 {
-int turnspeed = _K*speed*255/100;
+int turnspeed = _K*(float)speed*255/100;
 int i = 0;
 
 LeftMotor.run(-turnspeed);
