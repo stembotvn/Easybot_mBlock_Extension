@@ -103,11 +103,7 @@ public:
 	 {} //initializer list for objects using within this Class
 
   //void begin();       
-    void waitStart(int distance);  //wait for signing in front of Robot with distance   
-    void setMaxSpeed(int max)  {
-      _MaxSpeed = max;
-      _K = (float)_MaxSpeed/100;
-    }      
+   // void waitStart(int distance);  //wait for signing in front of Robot with distance   
     void calibrate_Speed(int LeftCal,int RightCal) {
         _Lcal = (float)LeftCal/100;
         _Rcal = (float)RightCal/100;
@@ -135,8 +131,8 @@ private:
    EasySonar Distance;
    int _LINE_COLOR = BLACK;
    int _line_detect = 400; 
-   int _MaxSpeed = 100;
-   float _K=1;
+  // int _MaxSpeed = 100;
+   //float _K=1;
    float _Lcal = 1;
    float _Rcal = 1;
  //  SoftwareSerial BT; 

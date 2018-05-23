@@ -21,20 +21,7 @@
     ],
     [
       "w",
-      "Set Speed Maximum: %n \%",
-    "setMaxSpeed",
-      100,
-      {
-       "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.setMaxSpeed({0});\n",
-        "loop" : ""
-      }
-    ],
-    [
-      "w",
-      "Calibrate Speed Left: %n \% Right: %n \%",
+      "Calibrate MaxSpeed Left: %n \% Right: %n \%",
     "calibSpeed",
       100,100,
       {
