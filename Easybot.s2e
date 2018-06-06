@@ -153,7 +153,7 @@
        "w",
        "LCD Print at %d.row Pos %d  %s ", 
        "LCDprint", 
-       "LINE1","0","",
+       "LINE1","0"," ",
         {
            "setup":"lcd.begin();\n lcd.backlight();\n",
            "inc":"#include \"LiquidCrystal_I2C.h\"\n",
@@ -223,7 +223,7 @@
       }
     ],
 		["w",
-		"serial write Message  %s", 
+		"serial write Message:  %s", 
 		"serialWriteMessage", "hello",
 		{
 		"setup":"Serial.begin(115200);\n",
@@ -232,34 +232,47 @@
 		"work":"Serial.println({0});\n",
 		"loop":""}
 		],
+    
+    ["w",
+    "Bluetooth Send  %s", 
+    "BluetoothSend", "Data",
+    {
+    "setup":"BT.begin(9600);\n",
+    "inc":"#include \"Easybot.h\"\n",
+    "def":"SoftwareSerial BT(BT_Rx_Pin,BT_Tx_Pin);\n",
+    "work":"BT.println({0});\n",
+    "loop":""}
+    ],
+
     [
       "R",
-      "serial available bytes",
-      "serialAvailable",
+      "Bluetooth Data available",
+      "BluetoothAvailable",
       {
-        "setup": "Serial.begin(115200);\n",
-        "inc": "",
-        "def": "",
-        "work": "Serial.available()",
+        "setup": "BT.begin(9600);\n",
+        "inc":"#include \"Easybot.h\"\n",
+        "def":"SoftwareSerial BT(BT_Rx_Pin,BT_Tx_Pin);\n",
+        "work": "BT.available()",
         "loop": ""
       }
     ],
+    
     [
       "R",
-      "serial read byte",
-      "serialRead",
+      "Bluetooth read byte",
+      "BluetoothRead",
       {
-        "setup": "Serial.begin(115200);\n",
-        "inc": "",
-        "def": "",
-        "work": "Serial.read()",
+        "setup": "BT.begin(9600);\n",
+        "inc":"#include \"Easybot.h\"\n",
+        "def":"SoftwareSerial BT(BT_Rx_Pin,BT_Tx_Pin);\n",
+        "work": "BT.read()",
         "loop": ""
       }
     ],
 
     ["R", 
-    "get Timer in mili-Seconds",
-    "getTimer_ms", 
+    "get Timer",
+    "getTimer", 
     "0",
     {"setup":"",
     "inc":"",
@@ -267,7 +280,6 @@
     "work":"getLastTime()",
     "loop":""
     }],
-    
     ["w", 
     "reset timer",
     "resetTimer_ms",
