@@ -1,0 +1,320 @@
+{
+	"extensionName": "Easybot",
+	"description": "For Programming Easybot of STEMbot.vn - Arduino Mode Only",
+	"version": "1.8",
+	"author": "STEMbot.vn",
+	"homepage": "http://stembot.vn",
+	"sort":0,
+	"javascriptURL":"js/Easybot.js",
+  "firmware":"1.0",
+  "extensionPort":0,
+	"blockSpecs": [
+	  [
+      "h",
+      "Programa Easybot",
+      "runArduino",
+       {
+         "inc":"",
+         "def": "",
+         "setup":"",
+         "loop":""}
+    ],
+    [
+      "w",
+      "Calibrar MaxVel Izquierda: %n \% Derecha: %n \%",
+    "calibSpeed",
+      100,100,
+      {
+       "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.calibrate_Speed({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+     [
+      "w",
+      "Detener Robot",
+	    "stop",
+     {
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.stop();\n",
+        "loop" : ""
+      }
+    ],
+	[
+      "w",
+      "Mover Adelante a Velocidad: %n \%",
+	  "moveForward",
+      100,
+      {
+       "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.moveForward({0});\n",
+        "loop" : ""
+      }
+    ],
+	[
+      "w",
+      "Ajustar Motor (Izquierdo %n \%   Derecho: %n \% )\n",
+	  "move",
+      100,
+	  100,
+      {
+       "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.moveForward({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+    [
+      "w",
+      "Mover Retroceder a Velocidad: %n \%",
+	  "moveBack",
+      100,
+      {
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.moveBack({0});\n",
+        "loop" : ""
+      }
+    ],
+    [
+      "w",
+      "Giro Izquierda a Velocidad: %n \%",
+      "turnLeft",
+      70,
+      {
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.turnLeft({0});\n",
+        "loop" : ""
+      }
+    ],
+    [
+      "w",
+      "Giro Derecha a Velocidad: %n \% ",
+      "turnRight",
+      70,
+      {
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.turnRight({0});\n",
+        "loop" : ""
+      }
+    ],
+	[
+      "w",
+      "Giro Izquierda a Velocidad: %n \% en %n x0.1s ",
+      "turnLeftInTime",
+      70,3, 
+	    {
+       "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.turnLeft({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+	[
+      "w",
+      "Giro Derecha a Velocidad: %n \% en %n x0.1s ",
+      "turnRightInTime",
+      70,3, 
+	    {
+        "inc":"#include \"Easybot.h\"\n",
+        "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.turnRight({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+	[
+      "w",
+      "Color de Linea: %d.Line_color  Sensivilidad: %n  ",
+      "LineConfig",
+      "BLACK",350, 
+	    {
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.setup_lineSensor({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+    [
+       "w",
+       "Escribir LCD a %d.row Pos %d  %s ", 
+       "LCDprint", 
+       "LINE1","0"," ",
+        {
+           "setup":"lcd.begin();\n lcd.backlight();\n",
+           "inc":"#include \"LiquidCrystal_I2C.h\"\n",
+           "def":"LiquidCrystal_I2C lcd(0x3F, 16, 2);\n",
+           "work":"lcd.setCursor({1},{0});lcd.print({2});lcd.print(\" \");\n",
+           "loop":""}
+    ],
+	[
+      "R",
+      "Leer Sensor de Línea %d.Line_Sensor_Pos",
+      "readLineSensor",
+      "CENTER", 
+	    {
+       "inc":"#include \"Easybot.h\"\n",
+        "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.readSensor({0})",
+        "loop" : ""
+      }
+    ],
+	[
+      "B",
+      "Línea Izquierda ",
+      "CheckLeftLine",
+        {
+       "inc":"#include \"Easybot.h\"\n",
+       "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.leftSensor()",
+        "loop" : ""
+      }
+    ],
+	[
+      "B",
+      "Línea Central ",
+      "CheckCenterLine",
+        {
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.centerSensor()",
+        "loop" : ""
+      }
+    ],
+	[
+      "B",
+      "Línea Derecha ",
+      "CheckRightLine",
+        {
+       "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.rightSensor()",
+        "loop" : ""
+      }
+    ],
+	[
+      "R",
+      "Leer Distancia",
+      "readDistance",
+        {
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.readSonar()",
+        "loop" : ""
+      }
+    ],
+		["w",
+		"Escribir Mensaje Serial:  %s", 
+		"serialWriteMessage", "hello",
+		{
+		"setup":"Serial.begin(115200);\n",
+		"inc":"",
+		"def":"",
+		"work":"Serial.println({0});\n",
+		"loop":""}
+		],
+    
+    ["w",
+    "Bluetooth Enviar  %s", 
+    "BluetoothSend", "Data",
+    {
+    "setup":"BT.begin(9600);\n",
+    "inc":"#include \"Easybot.h\"\n",
+    "def":"SoftwareSerial BT(BT_Rx_Pin,BT_Tx_Pin);\n",
+    "work":"BT.println({0});\n",
+    "loop":""}
+    ],
+
+    [
+      "R",
+      "Bluetooth Dato disponible",
+      "BluetoothAvailable",
+      {
+        "setup": "BT.begin(9600);\n",
+        "inc":"#include \"Easybot.h\"\n",
+        "def":"SoftwareSerial BT(BT_Rx_Pin,BT_Tx_Pin);\n",
+        "work": "BT.available()",
+        "loop": ""
+      }
+    ],
+    
+    [
+      "R",
+      "Bluetooth Leer byte",
+      "BluetoothRead",
+      {
+        "setup": "BT.begin(9600);\n",
+        "inc":"#include \"Easybot.h\"\n",
+        "def":"SoftwareSerial BT(BT_Rx_Pin,BT_Tx_Pin);\n",
+        "work": "BT.read()",
+        "loop": ""
+      }
+    ],
+
+    ["R", 
+    "Obtener Timer",
+    "getTimer", 
+    "0",
+    {"setup":"",
+    "inc":"",
+    "def":"double currentTime = 0;\ndouble lastTime = 0;\n--separator--double getLastTime(){\n\treturn currentTime = millis()/1000.0 - lastTime;\n}\n",
+    "work":"getLastTime()",
+    "loop":""
+    }],
+    ["w", 
+    "Reset timer",
+    "resetTimer_ms",
+     "0",
+    {
+    "setup":"",
+    "inc":"",
+    "def":"double currentTime = 0;\ndouble lastTime = 0;\n",
+    "work":"lastTime = millis()/1000.0;\n","loop":""
+    }
+    ]
+	],
+	"menus": {
+	"Line_color":["BLACK","WHITE"],
+	"Line_Sensor_Pos":["LEFT","CENTER","RIGHT"],
+  "row":["LINE1","LINE2"]
+	
+	
+	},
+	"values":{
+	"BLACK":1,
+	"WHITE":0,
+	"LEFT":0,
+	"RIGHT":2,
+	"CENTER":1,
+  "LINE1":0,
+  "LINE2":1,
+	},
+	"translators":{
+	"BLACK":"NEGRO",
+	"WHITE":"BLANCO",
+	"LEFT":"IZQUIERDA",
+	"RIGHT":"DERECHA",
+	"CENTER":"CENTRAL",
+	"LINE1":"LINEA1",
+	"LINE2":"LINEA2",          
+	}
+}
