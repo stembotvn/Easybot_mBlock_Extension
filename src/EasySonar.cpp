@@ -43,13 +43,13 @@ long EasySonar::Timing()
   return duration;
 }
 
-long EasySonar::Ranging(int sys)
+float EasySonar::Ranging(int sys)
 {
   Timing();
   if (sys) {
-	distance_cm = duration /29 / 2 ;
+	distance_cm = duration /29.41 / 2 ;
 	return distance_cm;
   } else {
-	distance_inc = duration / 74 / 2;
+	distance_inc = duration / 74.70 / 2;
 	return distance_inc; }
 }

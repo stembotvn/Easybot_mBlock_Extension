@@ -22,13 +22,13 @@ class EasySonar
     EasySonar(int TP, int EP);
   	EasySonar(int TP, int EP, long TO);
     long Timing();
-    long Ranging(int sys);
+    float Ranging(int sys);
 
   private:
     int Trig_pin;
     int Echo_pin;
 	long Time_out;
-    long duration,distance_cm,distance_inc;
+    float duration,distance_cm,distance_inc;
 };
 
 #endif

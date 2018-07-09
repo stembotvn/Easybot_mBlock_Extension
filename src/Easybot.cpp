@@ -7,48 +7,46 @@
 /*void EasybotNano::begin(){
  
 }*/
-
-
-///////////////////////////////////////
+///////////////////////////////////////////
 void EasybotNano::moveForward(int speed){
  int movespeed = (float)speed*255/100; 
  LeftMotor.run(_Lcal*movespeed);
  RightMotor.run(_Rcal*movespeed);
 }
-////
+///////////////////////////////////
 void EasybotNano::moveBack(int speed){
 int  movespeed = (float)speed*255/100; 
  LeftMotor.run(-movespeed*_Lcal);
- RightMotor.run(-movespeed*_Rcal);	
+ RightMotor.run(-movespeed*_Rcal);  
 }
 ////////////////////////////////////////////
  void EasybotNano::moveForward(int leftspeed,int rightspeed)
  {
- 	int Lspeed = _Lcal*leftspeed*255/100;
- 	int Rspeed = _Rcal*rightspeed*255/100;
- 	LeftMotor.run(Lspeed);
- 	RightMotor.run(Rspeed);
+  int Lspeed = _Lcal*leftspeed*255/100;
+  int Rspeed = _Rcal*rightspeed*255/100;
+  LeftMotor.run(Lspeed);
+  RightMotor.run(Rspeed);
  }
-
+////////////////////////////////////////////
  void EasybotNano::moveRight(int speed)
  {
 //int rspeed;
-//rspeed = speed*255/100; 	
+//rspeed = speed*255/100;   
 moveForward(_Rcal*speed,0);
 
  }
- ///
+ ///////////////////////////////////////////
  void EasybotNano::moveLeft(int speed)
  {
 //int rspeed;
-//rspeed = speed*255/100; 	
+//rspeed = speed*255/100;   
 moveForward(0,_Lcal*speed);
  }
  
 //////////////////////////////
 void EasybotNano::stop()
 {
-	LeftMotor.stop();
+  LeftMotor.stop();
   RightMotor.stop();
 }
 ///////////////////////////////
@@ -81,8 +79,8 @@ int turnspeed = (float)speed*255/100;
 //LeftMotor.stop();
 //RightMotor.stop();
 //delayMicroseconds(deadband_time);
-	 LeftMotor.run(-turnspeed*_Lcal);
-	 RightMotor.run(turnspeed*_Rcal);
+   LeftMotor.run(-turnspeed*_Lcal);
+   RightMotor.run(turnspeed*_Rcal);
 //delay(turn_duration_time);
 //LeftMotor.stop();
 //RightMotor.stop();
@@ -191,7 +189,13 @@ float EasybotNano::readSonar() {
   delay(100);
 return range;
     }
- /////////////////////////////////////////////////////////////////////////////////   
+/////////////////////////////
+void EasybotNano::setServo(int Angle)
+{
+// if (!servo.attached) 
+servo.attach(Servo_Pin);
+ servo.write(Angle);
+}
 /*
  //////////////////////////////////
  
