@@ -1,7 +1,7 @@
 {
 	"extensionName": "Easybot",
 	"description": "For Programming Easybot of STEMbot.vn - Arduino Mode Only",
-	"version": "1.8",
+	"version": "1.9",
 	"author": "STEMbot.vn",
 	"homepage": "http://stembot.vn",
 	"sort":0,
@@ -133,6 +133,31 @@
         "def": "EasybotNano Robot;\n",
         "setup" : "",
         "work" : "Robot.turnRight({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+    [
+      "w",
+      "Set Servo Angle at: %n degree ",
+      "setServo",
+      90,
+      {
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.setServo({0});\n",
+        "loop" : ""
+      }
+    ],
+    [
+      "w",
+      "Disable Servo",
+      "disableServo",
+       {
+        "inc":"#include \"Easybot.h\"\n",
+         "def": "EasybotNano Robot;\n",
+        "setup" : "",
+        "work" : "Robot.disableServo();\n",
         "loop" : ""
       }
     ],
