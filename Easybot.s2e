@@ -1,339 +1,296 @@
-{
-	"extensionName": "Easybot",
-	"description": "For Programming Easybot of STEMbot.vn - Arduino Mode Only",
-	"version": "1.9",
-	"author": "STEMbot.vn",
-	"homepage": "http://stembot.vn",
-	"sort":0,
-	"javascriptURL":"js/Easybot.js",
-  "firmware":"1.0",
-  "extensionPort":0,
+{	"extensionName": "Easybot",
+	"description": "Easybot Scratch",
+	"version": "1.1.0",
+	"author": "Negendo.com",
+	"homepage": "https://negendo.com",
+	"sort": 0,
+	"javascriptURL": "js/Easybot.js",
+	"firmware": "1.0",
+	"extensionPort": 0,
+	"tags": "Easybot",
 	"blockSpecs": [
-	  [
-      "h",
-      "Easybot Program",
-      "runArduino",
-       {
-         "inc":"",
-         "def": "",
-         "setup":"",
-         "loop":""}
-    ],
-    [
-      "w",
-      "Calibrate MaxSpeed Left: %n \% Right: %n \%",
-    "calibSpeed",
-      100,100,
-      {
-       "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.calibrate_Speed({0},{1});\n",
-        "loop" : ""
-      }
-    ],
-     [
-      "w",
-      "Robot Stop",
-	    "stop",
-     {
-        "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.stop();\n",
-        "loop" : ""
-      }
-    ],
-	[
-      "w",
-      "Move Forward at Speed: %n \%",
-	  "moveForward",
-      100,
-      {
-       "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.moveForward({0});\n",
-        "loop" : ""
-      }
-    ],
-	[
-      "w",
-      "Set Motor (Left %n \%   Right: %n \% )\n",
-	  "move",
-      100,
-	  100,
-      {
-       "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.moveForward({0},{1});\n",
-        "loop" : ""
-      }
-    ],
-    [
-      "w",
-      "Move Backward at Speed: %n \%",
-	  "moveBack",
-      100,
-      {
-        "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.moveBack({0});\n",
-        "loop" : ""
-      }
-    ],
-    [
-      "w",
-      "Turn Left at Speed: %n \%",
-      "turnLeft",
-      70,
-      {
-        "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.turnLeft({0});\n",
-        "loop" : ""
-      }
-    ],
-    [
-      "w",
-      "Turn Right at Speed: %n \% ",
-      "turnRight",
-      70,
-      {
-        "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.turnRight({0});\n",
-        "loop" : ""
-      }
-    ],
-	[
-      "w",
-      "Turn Left at Speed: %n \% in %n x0.1s ",
-      "turnLeftInTime",
-      70,3, 
-	    {
-       "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.turnLeft({0},{1});\n",
-        "loop" : ""
-      }
-    ],
-	[
-      "w",
-      "Turn Right at Speed: %n \% in %n x0.1s ",
-      "turnRightInTime",
-      70,3, 
-	    {
-        "inc":"#include \"Easybot.h\"\n",
-        "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.turnRight({0},{1});\n",
-        "loop" : ""
-      }
-    ],
-    [
-      "w",
-      "Set Servo Angle at: %n degree ",
-      "setServo",
-      90,
-      {
-        "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.setServo({0});\n",
-        "loop" : ""
-      }
-    ],
-    [
-      "w",
-      "Disable Servo",
-      "disableServo",
-       {
-        "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.disableServo();\n",
-        "loop" : ""
-      }
-    ],
-	[
-      "w",
-      "Line Color: %d.Line_color  Sensitive: %n  ",
-      "LineConfig",
-      "BLACK",350, 
-	    {
-        "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.setup_lineSensor({0},{1});\n",
-        "loop" : ""
-      }
-    ],
-    [
-       "w",
-       "LCD Print at %d.row Pos %d  %s ", 
-       "LCDprint", 
-       "LINE1","0"," ",
-        {
-           "setup":"lcd.begin();\n lcd.backlight();\n",
-           "inc":"#include \"LiquidCrystal_I2C.h\"\n",
-           "def":"LiquidCrystal_I2C lcd(0x3F, 16, 2);\n",
-           "work":"lcd.setCursor({1},{0});lcd.print({2});lcd.print(\" \");\n",
-           "loop":""}
-    ],
-	[
-      "R",
-      "Read Line Sensor %d.Line_Sensor_Pos",
-      "readLineSensor",
-      "CENTER", 
-	    {
-       "inc":"#include \"Easybot.h\"\n",
-        "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.readSensor({0})",
-        "loop" : ""
-      }
-    ],
-	[
-      "B",
-      "Line in Left ",
-      "CheckLeftLine",
-        {
-       "inc":"#include \"Easybot.h\"\n",
-       "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.leftSensor()",
-        "loop" : ""
-      }
-    ],
-	[
-      "B",
-      "Line in Center ",
-      "CheckCenterLine",
-        {
-        "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.centerSensor()",
-        "loop" : ""
-      }
-    ],
-	[
-      "B",
-      "Line in Right ",
-      "CheckRightLine",
-        {
-       "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.rightSensor()",
-        "loop" : ""
-      }
-    ],
-	[
-      "R",
-      "Read Distance",
-      "readDistance",
-        {
-        "inc":"#include \"Easybot.h\"\n",
-         "def": "EasybotNano Robot;\n",
-        "setup" : "",
-        "work" : "Robot.readSonar()",
-        "loop" : ""
-      }
-    ],
+		["h",
+            "Easybot Program","runArduino",
+			{
+                "setup":"",
+			    "inc": "",
+			    "def":"",
+			    "work":"",
+			    "loop":""
+			}
+        ],
+
 		["w",
-		"serial write Message:  %s", 
-		"serialWriteMessage", "hello",
-		{
-		"setup":"Serial.begin(115200);\n",
-		"inc":"",
-		"def":"",
-		"work":"Serial.println({0});\n",
-		"loop":""}
-		],
-    
-    ["w",
-    "Bluetooth Send  %s", 
-    "BluetoothSend", "Data",
-    {
-    "setup":"BT.begin(9600);\n",
-    "inc":"#include \"Easybot.h\"\n",
-    "def":"SoftwareSerial BT(BT_Rx_Pin,BT_Tx_Pin);\n",
-    "work":"BT.println({0});\n",
-    "loop":""}
-    ],
+		    "Firmware - Addressing: %d.addressing","Firmware","PAIR", 
+		    {
+                "encode":"",
+		        "setup":"  Robot.init({0});\n",
+		        "inc":"#include \"Easybot.h\" \n",
+		        "def":"EasybotNano Robot;\n",
+		        "work":"",
+		        "loop":" Robot.run();\n"
+            }
+        ],
 
-    [
-      "R",
-      "Bluetooth Data available",
-      "BluetoothAvailable",
-      {
-        "setup": "BT.begin(9600);\n",
-        "inc":"#include \"Easybot.h\"\n",
-        "def":"SoftwareSerial BT(BT_Rx_Pin,BT_Tx_Pin);\n",
-        "work": "BT.available()",
-        "loop": ""
-      }
-    ],
-    
-    [
-      "R",
-      "Bluetooth read byte",
-      "BluetoothRead",
-      {
-        "setup": "BT.begin(9600);\n",
-        "inc":"#include \"Easybot.h\"\n",
-        "def":"SoftwareSerial BT(BT_Rx_Pin,BT_Tx_Pin);\n",
-        "work": "BT.read()",
-        "loop": ""
-      }
-    ],
+		["w",
+		    "Robot stop", "stop",
+		    {
+		        "setup":"",
+		        "inc":"",
+		        "def":"",
+		        "work":"",
+		        "loop":""
+            }
+        ],
 
-    ["R", 
-    "get Timer",
-    "getTimer", 
-    "0",
-    {"setup":"",
-    "inc":"",
-    "def":"double currentTime = 0;\ndouble lastTime = 0;\n--separator--double getLastTime(){\n\treturn currentTime = millis()/1000.0 - lastTime;\n}\n",
-    "work":"getLastTime()",
-    "loop":""
-    }],
-    ["w", 
-    "reset timer",
-    "resetTimer_ms",
-     "0",
-    {
-    "setup":"",
-    "inc":"",
-    "def":"double currentTime = 0;\ndouble lastTime = 0;\n",
-    "work":"lastTime = millis()/1000.0;\n","loop":""
-    }
-    ]
+        ["w",
+		    "Set Motor (Left %n \%   Right: %n \% )\n", "setMotor", 100, 100,
+		    {
+                "encode":"{d0}{d1}",
+		        "setup":"",
+		        "inc":"",
+		        "def":"",
+		        "work":"",
+		        "loop":""
+            }
+        ],	
+
+		["w",
+		    "Move Forward at Speed: %n \%","forward", 100,
+		    {
+                "encode":"{d0}",
+		        "setup":"",
+		        "inc":"",
+		        "def":"",
+		        "work":"",
+		        "loop":""
+            }
+        ],
+
+        ["w",
+		    "Move Backward at Speed: %n \%","backward", 100,
+		    {
+                "encode":"{d0}",
+		        "setup":"",
+		        "inc":"",
+		        "def":"",
+		        "work":"",
+		        "loop":""
+            }
+        ],
+
+        ["w",
+		    "Turn Left at Speed: %n \%","turnleft", 70,
+		    {
+                "encode":"{d0}",
+		        "setup":"",
+		        "inc":"",
+		        "def":"",
+		        "work":"",
+		        "loop":""
+            }
+        ],
+
+        ["w",
+		    "Turn Right at Speed: %n \%","turnright", 70,
+		    {
+                "encode":"{d0}",
+		        "setup":"",
+		        "inc":"",
+		        "def":"",
+		        "work":"",
+		        "loop":""
+            }
+        ],
+
+        ["w",
+		    "Set Servo Angle at: %n \% degree","setservo", 90,
+		    {
+                "encode":"{d0}",
+		        "setup":"",
+		        "inc":"",
+		        "def":"",
+		        "work":"",
+		        "loop":""
+            }
+        ],
+
+        ["w",
+		    "Disable Servo", "disableServo",
+		    {
+		        "setup":"",
+		        "inc":"",
+		        "def":"",
+		        "work":"",
+		        "loop":""
+            }
+        ],
+
+        ["w",
+		    "Play Memody (Note: %d.notes\%   beat: %d.beats \% )\n", "playmemody","C4","Half",
+		    {
+                "encode":"{d0}{d1}",
+		        "setup":"",
+		        "inc":"",
+		        "def":"",
+		        "work":"",
+		        "loop":""
+            }
+        ],
+
+        ["w",
+		    "Set Color (Red: %n \%   Green: %n \% Blue: %n \%)\n", "setcolor", 255, 0, 0,
+		    {
+                "encode":"{d0}{d1}{d2}",
+		        "setup":"",
+		        "inc":"",
+		        "def":"",
+		        "work":"",
+		        "loop":""
+            }
+        ],
+
+        ["w",
+		    "Off Color", "offcolor",
+		    {
+		        "setup":"",
+		        "inc":"",
+		        "def":"",
+		        "work":"",
+		        "loop":""
+            }
+        ],
+		
+        ["B",
+		    "action Done", "actionDone",
+		    {
+		        "setup":"",
+		        "inc":"",
+		        "def":"",
+		        "work":"",
+		        "loop":""
+            }
+        ],
+		
+		["R", 
+			"Get Distance","getDistance",
+		    {
+			    "encode":"",
+			    "setup":"",
+			    "inc":"",
+			    "def":"",
+			    "work":"",
+			    "loop":""
+            }
+        ],
+
+        ["R", 
+			"Line in Center","getCenterLine",
+		    {
+			    "encode":"",
+			    "setup":"",
+			    "inc":"",
+			    "def":"",
+			    "work":"",
+			    "loop":""
+            }
+        ],
+
+        ["R", 
+			"Line in Right","getRightLine",
+		    {
+			    "encode":"",
+			    "setup":"",
+			    "inc":"",
+			    "def":"",
+			    "work":"",
+			    "loop":""
+            }
+        ],
+
+        ["R", 
+			"Line in Left","getLeftLine",
+		    {
+			    "encode":"",
+			    "setup":"",
+			    "inc":"",
+			    "def":"",
+			    "work":"",
+			    "loop":""
+            }
+        ],
+
+		["R", 
+			"Light Level in %d.sides","getLight","LEFT",
+		    {
+			    "encode":"{d0}",
+			    "setup":"",
+			    "inc":"",
+			    "def":"",
+			    "work":"",
+			    "loop":""
+            }
+        ]
+		
+		
 	],
 	"menus": {
-	"Line_color":["BLACK","WHITE"],
-	"Line_Sensor_Pos":["LEFT","CENTER","RIGHT"],
-  "row":["LINE1","LINE2"]
-	
-	
+	"speeds":["LOW","MEDIUM","HIGH"],
+	"moves":["Forward","Backward","Left","Right"],
+	"steps":["SLOW","FAST"],
+	"sides":["LEFT","RIGHT"],
+	"addressing":["PAIR","No1","No2","No3","No4","No5"],
+	"songs":["JINGLE BELLS", "HAPPY BIRTHDAY", "CMHDT"],
+
+
+    "notes":["C2","D2","E2","F2","G2","A2","B2","C3","D3","E3","F3","G3","A3","B3","C4","D4","E4","F4","G4","A4","B4","C5","D5","E5","F5","G5","A5","B5","C6","D6","E6","F6","G6","A6","B6","C7","D7","E7","F7","G7","A7","B7","C8","D8"],
+    "beats":["Half","Quarter","Eighth","Whole","Double","Zero"]
 	},
+
 	"values":{
-	"BLACK":1,
-	"WHITE":0,
+	"LOW":500,
+	"MEDIUM":1000,
+	"HIGH":2000,	
+
+	"Forward":1,
+	"Backward":2,
+	"Left":3,
+	"Right":4,
+
+	"SLOW": 1500,
+	"FAST": 600,
+
+	"run":2,
+	"get":1,
+	"digital":30,
+	"analog":31,
+	"pwm":32,
+
 	"LEFT":0,
-	"RIGHT":2,
-	"CENTER":1,
-  "LINE1":0,
-  "LINE2":1,
+	"RIGHT":1,
+	"PAIR":0,
+	"No1":1,
+	"No2":2,
+	"No3":3,
+	"No4":4,
+	"No5":5,
+
+	"JINGLE_BELLS":3,
+	"HAPPY_BIRTHDAY":2,
+	"CMHDT":1,
+
+    "B0":31,"C1":33,"D1":37,"E1":41,"F1":44,"G1":49,"A1":55,"B1":62,
+			"C2":65,"D2":73,"E2":82,"F2":87,"G2":98,"A2":110,"B2":123,
+			"C3":131,"D3":147,"E3":165,"F3":175,"G3":196,"A3":220,"B3":247,
+			"C4":262,"D4":294,"E4":330,"F4":349,"G4":392,"A4":440,"B4":494,
+			"C5":523,"D5":587,"E5":659,"F5":698,"G5":784,"A5":880,"B5":988,
+			"C6":1047,"D6":1175,"E6":1319,"F6":1397,"G6":1568,"A6":1760,"B6":1976,
+			"C7":2093,"D7":2349,"E7":2637,"F7":2794,"G7":3136,"A7":3520,"B7":3951,
+			"C8":4186,"D8":4699,
+
+    "Half":500,"Quarter":250,"Eighth":125,"Whole":1000,"Double":2000,"Zero":0
+
 	},
 	"translators":{
-          
 	}
 }

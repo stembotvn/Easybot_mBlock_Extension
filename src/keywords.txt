@@ -17,4 +17,6 @@ lookRight	KEYWORD2
 lookLeft	KEYWORD2
 lookFront	KEYWORD2
 BT	KEYWORD2
+setColor	KEYWORD2
+offRGB	KEYWORD2
 	
