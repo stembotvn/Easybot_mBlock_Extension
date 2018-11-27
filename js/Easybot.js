@@ -69,15 +69,15 @@
     }; 
     ext.getCenterLine = function(nextID,side) {
         var deviceId = 73;
-        getPackage(nextID,deviceId,typeof side=="number"?side:sides[side]);
+        getPackage(nextID,deviceId);
     }; 
     ext.getRightLine = function(nextID,side) {
         var deviceId = 74;
-        getPackage(nextID,deviceId,typeof side=="number"?side:sides[side]);
+        getPackage(nextID,deviceId);
     }; 
     ext.getLeftLine = function(nextID,side) {
         var deviceId = 75;
-        getPackage(nextID,deviceId,typeof side=="number"?side:sides[side]);
+        getPackage(nextID,deviceId);
     }; 
     ext.actionDone = function(nextID) {
         var deviceId = 92;
